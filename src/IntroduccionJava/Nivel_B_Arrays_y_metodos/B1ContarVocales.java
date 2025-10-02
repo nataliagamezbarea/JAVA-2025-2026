@@ -1,4 +1,4 @@
-package Nivel_B_Arrays_y_metodos;
+package IntroduccionJava.Nivel_B_Arrays_y_metodos;
 
 import java.util.Scanner;
 
