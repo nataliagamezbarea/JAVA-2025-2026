@@ -3,6 +3,7 @@ package IntroduccionJava.Nivel_B_Arrays_y_metodos;
 public class B3RotarArray {
     public static void main(String[] args) {
         int [] array = {4 , 8, 2 , 5};
+        int[] array_rotado = new int[4];
 
         for (int i = 0; i < array.length ; i++) {
             // si la posicion es menor que array.length se suma 2 y siempre dara la i igual como resto
@@ -11,7 +12,14 @@ public class B3RotarArray {
 
             int posicion_nueva = (i + 2) % array.length;
 
-            System.out.println("El numero " + array[i] + "en la posicion "+ posicion_nueva);
+            // guardamos en otro array en la posición nueva el valor actual del bucle (i)
+            array_rotado[posicion_nueva] = array[i];
+        }
+
+        // ahora simplemente imprimes el array rotado
+        System.out.print("El array es: ");
+        for (int n_rotado:array_rotado) {
+            System.out.print(n_rotado);
         }
     }
 }
