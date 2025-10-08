@@ -10,6 +10,7 @@ public class B1ContarVocales {
         System.out.println("Introduce una frase");
         // si la frase está en mayuscula se convierte en minuscula
         String frase = leer.nextLine().toLowerCase();
+        leer.close();
 
         // inicia un contador de vocales
         int contador_vocales = 0;

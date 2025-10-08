@@ -1,15 +1,18 @@
 package IntroduccionJava.Nivel_B_Arrays_y_metodos;
 
+import java.util.Scanner;
+
 public class B4BusquedaBinaria {
 
     public static void main(String[] args) {
 
-        // definimos el array ordenado munualmente
+        // definimos el array ordenado manualmente
         int [] array = {1 , 2 , 3, 4 , 5, 6 , 7, 8, 9, 10};
 
+        Scanner leer = new Scanner(System.in);
         // declaramos una constante para poder saber que numero deseo encontrar.
-        final int NUMEROENCONTRAR = 3;
-
+        final int NUMEROENCONTRAR = leer.nextInt();
+        leer.close();
 
         // declaro el inicio predeterminadamente empezará por el 0
         int inicio = 0;
@@ -21,6 +24,7 @@ public class B4BusquedaBinaria {
         // declaramos si lo encontramos una variable que utilizaremos para saber si se ha encontrado
         boolean encontrado = false;
 
+        // modificamos el bucle para que también termine si inicio > fin (evita bucle infinito si el número no existe)
         do {
             // si el valor de la mitad del array no es igual al numero que desea encontrar
             if (array[mitad] != NUMEROENCONTRAR) {
@@ -40,7 +44,12 @@ public class B4BusquedaBinaria {
             }
             // despues de haber actualizado las variables de inicio y fin hay que recalcular la mitad por eso fuera de los if
             mitad =  (inicio+fin)/2;
-        } while (!encontrado  );
+        } while (!encontrado && inicio <= fin);
+
+        // mensaje si el número no se encuentra en el array
+        if (!encontrado) {
+            System.out.println("Número no encontrado en el array.");
+        }
 
         // los do while siempre hay que poner la condicion contraria es decir si quieres que se haga el bucle hasta que el numero encontrado
         // tienes que decir el bucle se hara en bucle siempre que el numero no sea encontrado , si es encontrado ya no se reproduce el bucle
